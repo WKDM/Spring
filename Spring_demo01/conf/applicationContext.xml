@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    
+    <!-- 
+    	<bean>:定义Spring所管理的一个对象
+    	id:该对象的唯一标识，，注意：不能重复（在通过类型获取bean的过程中可以不设置id）
+    	class:此对象所属类的全限定名
+     -->
+    <bean id="person1" class="com.spring.model.Person">
+    	<!-- 
+    		<property>:为对象的某个属性赋值
+    		name:属性名
+    		value:属性值
+    	 -->
+    	<property name="id" value="1111"></property>
+    	<property name="name" value="小明"></property>
+    </bean>
+    <bean id="person2" class="com.spring.model.Person">    	
+    	<property name="id" value="2222"></property>
+    	<property name="name" value="小话"></property>
+    </bean>
+</beans>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"    
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <bean id="s1" class="com.spring.DI.Student">
+    	<property name="id" value="10010"></property>
+    	<property name="name" value="张三"></property>
+    	<property name="age" value="23"></property>
+    	<property name="sex" value="男"></property>
+    </bean>
+    <bean id="s2" class="com.spring.DI.Student">
+    	<constructor-arg value="10086"></constructor-arg>
+    	<constructor-arg value="王二"></constructor-arg>
+    	<constructor-arg value="25"></constructor-arg>
+    	<constructor-arg value="女"></constructor-arg>
+    </bean>
+    <bean id="s3" class="com.spring.DI.Student">
+    	<constructor-arg value="10022"></constructor-arg>
+    	<constructor-arg value="李四"></constructor-arg>
+    	<constructor-arg value="50" index="2" type="java.lang.Double"></constructor-arg>
+    	<constructor-arg value="女"></constructor-arg>
+    </bean>
+    <bean id="s4" class="com.spring.DI.Student">
+    	<property name="id" value="10011"></property>
+    	<property name="name" value="张三三"></property>
+    	<property name="age" value="25"></property>
+    	<property name="sex" value="男"></property>
+    	<property name="teacher" ref="teacher"></property>
+    </bean>
+    
+    <bean id="teacher" class="com.spring.DI.Teacher">
+    	<property name="tid" value="1001"></property>
+    	<property name="tname" value="王雁芬"></property>
+    </bean>
+    
+    
+    <bean id="t1" class="com.spring.DI.Teacher">
+    	<property name="tid" value="10001"></property>
+    	<property name="tname" value="王玉"></property>
+    	<property name="cls">
+    		<list>
+    			<value>A班</value>
+    			<value>B班</value>
+    			<value>C班</value>
+    		</list>
+    	</property>
+    </bean>
+    
+    
+    <bean id="t2" class="com.spring.DI.Teacher">
+    	<property name="tid" value="100101"></property>
+    	<property name="tname" value="罗家峪"></property>
+    	<property name="students">
+    		<list>
+    			<ref bean="s1" />
+    			<ref bean="s2" />
+    			<ref bean="s3" />
+    		</list>
+    	</property>
+    </bean>
+    <bean id="t3" class="com.spring.DI.Teacher">
+    	<property name="tid" value="100102"></property>
+    	<property name="tname" value="黄删"></property>
+    	<property name="bossMap">
+    		<map>
+    			<entry>
+    				<key>
+    					<value>100</value>
+    				</key>
+    				<value>王老师</value>
+    			</entry>
+    			<entry>
+    				<key>
+    					<value>101</value>
+    				</key>
+    				<value>张老师</value>
+    			</entry>
+    			<entry>
+    				<key>
+    					<value>102</value>
+    				</key>
+    				<value>里老师</value>
+    			</entry>
+    		</map>
+    	</property>
+    </bean>
+    
+</beans>
